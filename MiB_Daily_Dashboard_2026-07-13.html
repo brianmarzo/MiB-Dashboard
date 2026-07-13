@@ -1,352 +1,473 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Men in Black — Daily Onboarding Dashboard</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Men in Black — Daily Launch Dashboard — July 13, 2026</title>
 <style>
-  :root{
-    --bg:#f7f7f8; --card:#ffffff; --ink:#1a1a1a; --muted:#6b7280; --line:#e5e7eb;
-    --red:#dc2626; --redbg:#fef2f2; --amber:#d97706; --amberbg:#fffbeb;
-    --green:#16a34a; --greenbg:#f0fdf4; --blue:#2563eb; --blbg:#eff6ff;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-       line-height:1.45;font-size:14px;}
-  .wrap{max-width:1180px;margin:0 auto;padding:28px 22px 60px;}
-  header h1{font-size:22px;margin:0 0 4px;font-weight:700;}
-  header .sub{color:var(--muted);font-size:13px;}
-  header .sub b{color:var(--ink);}
-  .kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:22px 0 8px;}
-  .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 12px;}
-  .kpi .n{font-size:26px;font-weight:700;line-height:1;}
-  .kpi .l{font-size:11px;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:.03em;}
-  .kpi.red .n{color:var(--red);} .kpi.amber .n{color:var(--amber);} .kpi.blue .n{color:var(--blue);}
-  .callout{background:var(--redbg);border:1px solid #fecaca;border-left:5px solid var(--red);
-           border-radius:10px;padding:14px 18px;margin:18px 0 26px;}
-  .callout h2{font-size:14px;margin:0 0 8px;color:var(--red);text-transform:uppercase;letter-spacing:.04em;}
-  .callout ul{margin:0;padding-left:18px;} .callout li{margin:5px 0;}
-  h2.sec{font-size:15px;margin:30px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line);}
-  .meet-tbl{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);
-            border-radius:12px;overflow:hidden;font-size:13px;}
-  .meet-tbl th{background:#fafafb;text-align:left;padding:9px 12px;color:var(--muted);
-               font-weight:600;border-bottom:1px solid var(--line);font-size:11px;text-transform:uppercase;letter-spacing:.03em;}
-  .meet-tbl td{padding:9px 12px;border-bottom:1px solid var(--line);}
-  .repblock{margin-top:26px;}
-  .rephdr{display:flex;align-items:baseline;gap:10px;margin-bottom:2px;}
-  .rephdr h3{font-size:17px;margin:0;font-weight:700;}
-  .rephdr .meta{color:var(--muted);font-size:12px;}
-  table.cases{width:100%;border-collapse:collapse;background:var(--card);
-              border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:8px;font-size:13px;}
-  table.cases th{background:#fafafb;text-align:left;padding:8px 10px;color:var(--muted);
-                 font-weight:600;font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid var(--line);}
-  table.cases td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
-  tr.grp td{background:#2b2f36;color:#fff;font-weight:600;font-size:12.5px;padding:8px 10px;}
-  tr.grp .em{color:#c7ccd4;font-weight:400;}
-  tr.grp .nm{color:#9aa4b2;font-weight:400;float:right;}
-  .rest{font-weight:600;} .rest a{color:var(--blue);text-decoration:none;font-weight:400;font-size:11.5px;}
-  .rest a:hover{text-decoration:underline;}
-  .lk{font-size:11px;color:var(--muted);}
-  .pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600;white-space:nowrap;}
-  .pill.past{background:var(--redbg);color:var(--red);border:1px solid #fecaca;}
-  .pill.stall{background:var(--amberbg);color:var(--amber);border:1px solid #fde68a;}
-  .pill.watch{background:var(--blbg);color:var(--blue);border:1px solid #bfdbfe;}
-  .pill.ok{background:var(--greenbg);color:var(--green);border:1px solid #bbf7d0;}
-  .days{font-weight:600;} .days.hot{color:var(--red);} .days.warm{color:var(--amber);}
-  .none{color:var(--muted);font-style:italic;padding:10px 2px;}
-  footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;}
-  footer b{color:var(--ink);}
-</style>
-</head>
-<body>
-<div class="wrap">
-<header>
-  <h1>Men in Black — Daily Onboarding Dashboard</h1>
-  <div class="sub">
-    Referral partner: <b>Men in Black</b> &nbsp;·&nbsp; Reps: <b>David Adams</b>, <b>Jack Leonardo</b>, <b>Pablo Barreto</b><br>
-    <b>Monday, July 13, 2026</b> &nbsp;·&nbsp; Source: Salesforce (live) + rep calendars &nbsp;·&nbsp; <em>Cases grouped by customer contact</em>
-  </div>
-</header>
-
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1f2430;--muted:#6b7280;--line:#e5e7eb;--red:#dc2626;--amber:#d97706;--green:#059669;--blue:#2563eb;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.45}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:2px}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:20px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.kpi .n{font-size:26px;font-weight:700}
+.kpi .l{font-size:12px;color:var(--muted);margin-top:2px}
+.kpi .s{font-size:11px;color:var(--muted);margin-top:3px}
+.kpi.red .n{color:var(--red)} .kpi.amber .n{color:var(--amber)} .kpi.green .n{color:var(--green)}
+.callout{background:#fff;border:1px solid var(--line);border-left:4px solid var(--red);border-radius:10px;padding:14px 16px;margin:18px 0}
+.callout h3{margin:0 0 8px;font-size:14px}
+.callout ul{margin:0;padding-left:18px} .callout li{font-size:13px;margin:4px 0}
+h2{font-size:17px;margin:26px 0 4px}
+.rephead{color:var(--muted);font-size:13px;margin-bottom:8px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:10px}
+th,td{text-align:left;padding:9px 11px;font-size:12.5px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#fafafa;color:var(--muted);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.03em}
+tr:last-child td{border-bottom:none}
+.grp td{background:#eef1f5;font-weight:600;font-size:12px;color:#374151}
+.grp .em{color:var(--muted);font-weight:400}
+a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}
+.links a{font-size:11px;margin-right:8px}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600}
+.pill.ok{background:#ecfdf5;color:var(--green)}
+.pill.stall{background:#fffbeb;color:var(--amber)}
+.pill.risk{background:#fef2f2;color:var(--red)}
+.st{font-size:11px;color:var(--muted)}
+.livewrap{border-left:4px solid var(--green);padding-left:14px;margin-top:14px}
+.mtg td{font-size:12.5px}
+.foot{color:var(--muted);font-size:11.5px;margin-top:30px;border-top:1px solid var(--line);padding-top:14px}
+.none{color:var(--muted);font-size:13px;font-style:italic;padding:6px 0}
+</style></head><body><div class="wrap">
+<h1>Men in Black — Daily Launch Dashboard</h1>
+<div class="sub">Referral partner: <b>Men in Black</b> · Reps: David Adams, Jack Leonardo, Pablo Barreto · July 13, 2026</div>
+<div class="sub">Source: Salesforce (live) + rep calendars · grouped by customer contact</div>
 <div class="kpis">
-  <div class="kpi"><div class="n">31</div><div class="l">Active cases</div></div>
-  <div class="kpi"><div class="n">13</div><div class="l">Real customers</div></div>
-  <div class="kpi red"><div class="n">1</div><div class="l">Go-live in past</div></div>
-  <div class="kpi amber"><div class="n">13</div><div class="l">Stalled (7+ days)</div></div>
-  <div class="kpi blue"><div class="n">5</div><div class="l">Go-live by Jul 20</div></div>
-  <div class="kpi"><div class="n">0</div><div class="l">MiB calls today</div></div>
+<div class="kpi"><div class="n">30</div><div class="l">Open locations</div><div class="s">21 brands · 12 customers</div></div>
+<div class="kpi green"><div class="n">17</div><div class="l">Live locations</div><div class="s">8 brands · 8 customers live</div></div>
+<div class="kpi"><div class="n">3</div><div class="l">Reps</div><div class="s">MiB pod</div></div>
+<div class="kpi red"><div class="n">0</div><div class="l">Go-live risk</div><div class="s">past due or ≤3 days</div></div>
+<div class="kpi amber"><div class="n">16</div><div class="l">Stalled &gt;7d</div><div class="s">in current stage</div></div>
+<div class="kpi"><div class="n">0</div><div class="l">MiB calls today</div><div class="s">customer meetings</div></div>
 </div>
-
-<div class="callout">
-  <h2>Needs attention today</h2>
-  <ul>
-    <li><b>Four July-17 go-lives are still sitting in “New” with zero build progress:</b> Yarmouth House &amp; Tap City Grille–Hyannis (David / Doc Nealon), Kabob by Faraj (Jack / Houman), and Rocket Sushi (Pablo / Kitty Wong). That’s 4 days out — start the build today or push the date.</li>
-    <li><b>Tamago Sushi (Pablo / Kitty Wong) go-live was July 10 and the case is still open at Launch Accepted.</b> Confirm it actually launched, or reset the go-live date in Salesforce.</li>
-    <li><b>Yujin Lee’s Yama Sushi–Chinatown and Kimchi (Jack) have sat 24 days in “New”</b> — the two oldest stalls on the board. Escalate this week.</li>
-    <li><b>Bright spot:</b> Jack moved all 7 of Daniel Rodriguez’s Pablito’s / Hamburguetza brands to Launch Accepted on July 8 — that multi-brand July-31 launch is now on track.</li>
-  </ul>
-</div>
-
-<h2 class="sec">Today’s Men in Black meetings — calls you can join</h2>
-<table class="meet-tbl">
-  <thead><tr><th>Time (ET)</th><th>Rep</th><th>Meeting</th><th>Customer / contact</th><th>Join</th></tr></thead>
-  <tbody>
-    <tr><td colspan="5" class="none">No MiB customer meetings matched on the reps’ calendars today. (Calendar enrichment is best-effort; verify directly if a launch call is expected.)</td></tr>
-  </tbody>
+<div class="callout"><h3>Needs attention today</h3><ul>
+<li><b>16 of 30 open locations are stalled &gt;7 days in stage.</b> Worst: Yujin Lee’s Yama Sushi – Chinatown &amp; Kimchi (Jack) at <b>24 days</b> still in New, and Doc Nealon’s Tap City / Yarmouth (David) at <b>17 days</b> in New.</li>
+<li><b>Five locations still have no scheduled go-live date</b> — Lenny’s Casita + Little Lenny’s (Jack), both Hyphy Burgers (Pablo), Saaz Indian (Pablo). Book launch calls and set dates.</li>
+<li><b>No go-live risk inside 3 days</b> — nearest scheduled go-lives are Jul 17 (Tap City Hyannis, Yarmouth, Kabob). Clear those stalled New cases now before the date compresses.</li>
+<li><b>Good news:</b> Miguel Anaya’s 5 Pinches Tacos locations (Jack) all went live since Friday — moved out of the open pipeline into the live section below.</li>
+</ul></div>
+<h2>Today’s Men in Black meetings — calls you can join</h2>
+<div class="none">No customer-facing Men in Black calls matched on the reps’ calendars today.</div>
+<h2>David Adams</h2>
+<div class="rephead">— 5 customers · 12 locations · 7 brands</div>
+<table><tr><th>Restaurant</th><th>Status</th><th>Key blocker</th><th>Days</th><th>Sched. go-live</th><th>Flag</th><th>Suggested next action</th></tr>
+<tr class="grp"><td colspan="7">Erwin Silva <span class="em">· azmexican.info@gmail.com · 1 location · 1 brand</span></td></tr>
+<tr>
+<td>Azteca Mexican Restaurant #2 - Rancho Vista<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s2cN3YAI/view">SFDC</a><a href="https://dashboard.owner.com/brands/ozrtyD59SWNz/home?locationId=9UL2KjLIUGjt">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">2d in stage</div></td>
+<td>Recently accepted</td>
+<td>17</td>
+<td>Jul 31</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
+<tr class="grp"><td colspan="7">Doc Nealon <span class="em">· dockmn56@yahoo.com · 4 locations · 3 brands</span></td></tr>
+<tr>
+<td>Scally&#x27;s Irish Ale House<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s12bvYAA/view">SFDC</a><a href="https://dashboard.owner.com/brands/1WX4qH6bRKK7/home?locationId=7rDvgGJjrvDU">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">6d in stage</div></td>
+<td>Recently accepted</td>
+<td>17</td>
+<td>Jul 31</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
+<tr>
+<td>Tap City Grille - Hyannis<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s1492YAA/view">SFDC</a><a href="https://dashboard.owner.com/brands/2OV4jL4r12V9/home?locationId=KMFHarANKAy2">Dashboard</a></div></td>
+<td>New<div class="st">17d in stage</div></td>
+<td>Sitting in New past SLA</td>
+<td>17</td>
+<td>Jul 17</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Move to Launch Accepted — confirm order + kickoff</td>
+</tr>
+<tr>
+<td>Tap City Grille - Falmouth<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s10dIYAQ/view">SFDC</a><a href="https://dashboard.owner.com/brands/2OV4jL4r12V9/home?locationId=NDDGsyCQtc94">Dashboard</a></div></td>
+<td>New<div class="st">17d in stage</div></td>
+<td>Sitting in New past SLA</td>
+<td>17</td>
+<td>Jul 31</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Move to Launch Accepted — confirm order + kickoff</td>
+</tr>
+<tr>
+<td>Yarmouth House<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s10yJYAQ/view">SFDC</a><a href="https://dashboard.owner.com/brands/YjRl7g2RNC39/home?locationId=wD1bTeMNpAjK">Dashboard</a></div></td>
+<td>New<div class="st">17d in stage</div></td>
+<td>Sitting in New past SLA</td>
+<td>17</td>
+<td>Jul 17</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Move to Launch Accepted — confirm order + kickoff</td>
+</tr>
+<tr class="grp"><td colspan="7">Sumit Grover <span class="em">· curryboysla@gmail.com · 3 locations · 1 brand</span></td></tr>
+<tr>
+<td>Curry boys - Huntington Park<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sAKmPYAW/view">SFDC</a><a href="https://dashboard.owner.com/brands/STBCbNPJ14hx/home?locationId=3h6afzc49qnB">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">11d in stage</div></td>
+<td>Accepted but not progressing</td>
+<td>14</td>
+<td>Jul 24</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Chase menu build + first order to advance</td>
+</tr>
+<tr>
+<td>Curry boys (DTLA)<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sAK3EYAW/view">SFDC</a><a href="https://dashboard.owner.com/brands/STBCbNPJ14hx/home?locationId=H6zYW2RodmAp">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">12d in stage</div></td>
+<td>Accepted but not progressing</td>
+<td>14</td>
+<td>Jul 31</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Chase menu build + first order to advance</td>
+</tr>
+<tr>
+<td>Curry Boys - Hollywood<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sAR6IYAW/view">SFDC</a><a href="https://dashboard.owner.com/brands/STBCbNPJ14hx/home?locationId=oAwIfQ9TMiB2">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">11d in stage</div></td>
+<td>Accepted but not progressing</td>
+<td>14</td>
+<td>Jul 31</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Chase menu build + first order to advance</td>
+</tr>
+<tr class="grp"><td colspan="7">Siam Suktalordcheep <span class="em">· siam.suktalordcheep@gmail.com · 1 location · 1 brand</span></td></tr>
+<tr>
+<td>Shandra Thai Cuisine<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s2NXlYAM/view">SFDC</a><a href="https://dashboard.owner.com/brands/DCfbaG9u6iWN/home?locationId=07r5RC7G68ai">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">2d in stage</div></td>
+<td>Recently accepted</td>
+<td>17</td>
+<td>Jul 31</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
+<tr class="grp"><td colspan="7">Kelly Jue <span class="em">· kcheung807@gmail.com · 3 locations · 1 brand</span></td></tr>
+<tr>
+<td>Sam Woo - San Gabriel<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000scdhFYAQ/view">SFDC</a><a href="https://dashboard.owner.com/brands/kDAE9jZoS2Li/home?locationId=YiF7bI0t2Epr">Dashboard</a></div></td>
+<td>First Order Completed<div class="st">2d in stage</div></td>
+<td>First order done, awaiting go-live</td>
+<td>6</td>
+<td>Jul 24</td>
+<td><span class="pill ok">On track</span></td>
+<td>Verify go-live readiness and schedule</td>
+</tr>
+<tr>
+<td>Sam Woo - Cerritos<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000scumrYAA/view">SFDC</a><a href="https://dashboard.owner.com/brands/kDAE9jZoS2Li/home?locationId=XT1Gg2xrzxJ1">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">4d in stage</div></td>
+<td>Recently accepted</td>
+<td>6</td>
+<td>Jul 24</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
+<tr>
+<td>Sam Woo - Alhambra<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000scrFZYAY/view">SFDC</a><a href="https://dashboard.owner.com/brands/kDAE9jZoS2Li/home?locationId=LpCU0FpASgDB">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">4d in stage</div></td>
+<td>Recently accepted</td>
+<td>6</td>
+<td>Jul 24</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
 </table>
-
-<!-- ============ DAVID ADAMS ============ -->
-<div class="repblock">
-  <div class="rephdr"><h3>David Adams</h3><span class="meta">— 5 customers · 12 cases</span></div>
-  <table class="cases">
-    <thead><tr>
-      <th style="width:22%">Restaurant</th><th>Status</th><th>Key blocker</th>
-      <th>Days</th><th>Sched. go-live</th><th>Flag</th><th style="width:26%">Suggested next action</th>
-    </tr></thead>
-    <tbody>
-      <tr class="grp"><td colspan="7">Doc Nealon <span class="em">· dockmn56@yahoo.com</span> <span class="nm">4 brands · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Scally's Irish Ale House<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s12bvYAA/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/1WX4qH6bRKK7/home?locationId=7rDvgGJjrvDU">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>Assets to load before go-live</td>
-        <td class="days">17</td><td>Jul 31</td><td><span class="pill ok">On track</span></td>
-        <td>Confirm menu / Stripe / domain loaded well ahead of 7/31.</td>
-      </tr>
-      <tr>
-        <td class="rest">Yarmouth House<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s10yJYAQ/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/YjRl7g2RNC39/home?locationId=wD1bTeMNpAjK">Dashboard ↗</a></td>
-        <td>New</td><td>Build not started</td>
-        <td class="days hot">17</td><td>Jul 17</td><td><span class="pill past">Go-live risk</span></td>
-        <td>Go-live in 4 days with 0 progress — start build today or push the date.</td>
-      </tr>
-      <tr>
-        <td class="rest">Tap City Grille – Hyannis<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s1492YAA/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/2OV4jL4r12V9/home?locationId=KMFHarANKAy2">Dashboard ↗</a></td>
-        <td>New</td><td>Build not started</td>
-        <td class="days hot">17</td><td>Jul 17</td><td><span class="pill past">Go-live risk</span></td>
-        <td>Same customer as Yarmouth — batch the build; 7/17 at risk.</td>
-      </tr>
-      <tr>
-        <td class="rest">Tap City Grille – Falmouth<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s10dIYAQ/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/2OV4jL4r12V9/home?locationId=NDDGsyCQtc94">Dashboard ↗</a></td>
-        <td>New</td><td>Build not started</td>
-        <td class="days warm">17</td><td>Jul 31</td><td><span class="pill stall">Stalled</span></td>
-        <td>Begin build alongside the other Nealon brands.</td>
-      </tr>
-
-      <tr class="grp"><td colspan="7">Erwin Silva <span class="em">· azmexican.info@gmail.com</span> <span class="nm">1 brand · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Azteca Mexican Restaurant #2 – Rancho Vista<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s2cN3YAI/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/ozrtyD59SWNz/home?locationId=9UL2KjLIUGjt">Dashboard ↗</a></td>
-        <td>New</td><td>No go-live date set</td>
-        <td class="days warm">17</td><td>—</td><td><span class="pill stall">Stalled</span></td>
-        <td>Set a go-live date and kick off the build.</td>
-      </tr>
-
-      <tr class="grp"><td colspan="7">Kelly Jue <span class="em">· kcheung807@gmail.com</span> <span class="nm">3 brands · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Sam Woo – Alhambra<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000scrFZYAY/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/kDAE9jZoS2Li/home?locationId=LpCU0FpASgDB">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>—</td>
-        <td class="days">6</td><td>Jul 24</td><td><span class="pill ok">On track</span></td>
-        <td>Progressing well; confirm assets ahead of 7/24.</td>
-      </tr>
-      <tr>
-        <td class="rest">Sam Woo – Cerritos<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000scumrYAA/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/kDAE9jZoS2Li/home?locationId=XT1Gg2xrzxJ1">Dashboard ↗</a></td>
-        <td>New</td><td>Early stage</td>
-        <td class="days">6</td><td>Jul 24</td><td><span class="pill ok">On track</span></td>
-        <td>Move to build with the other Sam Woo locations.</td>
-      </tr>
-      <tr>
-        <td class="rest">Sam Woo – San Gabriel<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000scdhFYAQ/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/kDAE9jZoS2Li/home?locationId=YiF7bI0t2Epr">Dashboard ↗</a></td>
-        <td>New</td><td>Early stage</td>
-        <td class="days">6</td><td>Jul 24</td><td><span class="pill ok">On track</span></td>
-        <td>Batch build across all 3 Sam Woo brands.</td>
-      </tr>
-
-      <tr class="grp"><td colspan="7">Siam Suktalordcheep <span class="em">· siam.suktalordcheep@gmail.com</span> <span class="nm">1 brand · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Shandra Thai Cuisine<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000s2NXlYAM/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/DCfbaG9u6iWN/home?locationId=07r5RC7G68ai">Dashboard ↗</a></td>
-        <td>New</td><td>Build not started</td>
-        <td class="days warm">17</td><td>Jul 31</td><td><span class="pill stall">Stalled</span></td>
-        <td>17 days in New — start the build this week.</td>
-      </tr>
-
-      <tr class="grp"><td colspan="7">Sumit Grover <span class="em">· curryboysla@gmail.com</span> <span class="nm">3 brands · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Curry Boys – Huntington Park<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sAKmPYAW/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/STBCbNPJ14hx/home?locationId=3h6afzc49qnB">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>Assets before go-live</td>
-        <td class="days">14</td><td>Jul 24</td><td><span class="pill watch">Watch</span></td>
-        <td>Confirm assets loaded for 7/24.</td>
-      </tr>
-      <tr>
-        <td class="rest">Curry Boys (DTLA)<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sAK3EYAW/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/STBCbNPJ14hx/home?locationId=H6zYW2RodmAp">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>Assets before go-live</td>
-        <td class="days">14</td><td>Jul 31</td><td><span class="pill watch">Watch</span></td>
-        <td>Batch asset load across all 3 Curry Boys brands.</td>
-      </tr>
-      <tr>
-        <td class="rest">Curry Boys – Hollywood<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sAR6IYAW/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/STBCbNPJ14hx/home?locationId=oAwIfQ9TMiB2">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>Assets before go-live</td>
-        <td class="days">14</td><td>Jul 31</td><td><span class="pill watch">Watch</span></td>
-        <td>Confirm assets for 7/31 with the DTLA build.</td>
-      </tr>
-    </tbody>
-  </table>
+<h2>Jack Leonardo</h2>
+<div class="rephead">— 4 customers · 13 locations · 10 brands</div>
+<table><tr><th>Restaurant</th><th>Status</th><th>Key blocker</th><th>Days</th><th>Sched. go-live</th><th>Flag</th><th>Suggested next action</th></tr>
+<tr class="grp"><td colspan="7">Yujin Lee <span class="em">· yujinlee@bcdtofu.com · 3 locations · 2 brands</span></td></tr>
+<tr>
+<td>Yama Sushi - Chinatown<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rdFiGYAU/view">SFDC</a><a href="https://dashboard.owner.com/brands/NBEPlCha4op4/home?locationId=XMvXjE4oULWS">Dashboard</a></div></td>
+<td>New<div class="st">24d in stage</div></td>
+<td>Sitting in New past SLA</td>
+<td>24</td>
+<td>Jul 24</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Move to Launch Accepted — confirm order + kickoff</td>
+</tr>
+<tr>
+<td>Yama Sushi<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rdMesYAE/view">SFDC</a><a href="https://dashboard.owner.com/brands/NBEPlCha4op4/home?locationId=621n001hBo1G">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">17d in stage</div></td>
+<td>Accepted but not progressing</td>
+<td>24</td>
+<td>Jul 24</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Chase menu build + first order to advance</td>
+</tr>
+<tr>
+<td>Kimchi Restaurant<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rdP86YAE/view">SFDC</a><a href="https://dashboard.owner.com/brands/IbWfUb59jQev/home?locationId=EowbOMMfgEnC">Dashboard</a></div></td>
+<td>New<div class="st">24d in stage</div></td>
+<td>Sitting in New past SLA</td>
+<td>24</td>
+<td>Jul 24</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Move to Launch Accepted — confirm order + kickoff</td>
+</tr>
+<tr class="grp"><td colspan="7">Daniel G. Rodgriguez <span class="em">· danny@pablitostacos.com · 7 locations · 5 brands</span></td></tr>
+<tr>
+<td>Pablito&#x27;s Tacos<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ru1hJYAQ/view">SFDC</a><a href="https://dashboard.owner.com/brands/GDTBPPcNxlJE/home?locationId=27Il6mvkHvNV">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">5d in stage</div></td>
+<td>Recently accepted</td>
+<td>19</td>
+<td>Jul 31</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
+<tr>
+<td>MexiSlice<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ruB4HYAU/view">SFDC</a><a href="https://dashboard.owner.com/brands/p48pN9giVvrU/home?locationId=J25oWKbL85OH">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">5d in stage</div></td>
+<td>Recently accepted</td>
+<td>19</td>
+<td>Jul 31</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
+<tr>
+<td>Pablito&#x27;s Tacos - Van Nuys<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ruBFDYA2/view">SFDC</a><a href="https://dashboard.owner.com/brands/GDTBPPcNxlJE/home?locationId=u2AscsV16AgR">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">5d in stage</div></td>
+<td>Recently accepted</td>
+<td>19</td>
+<td>Jul 31</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
+<tr>
+<td>Pablito&#x27;s Tacos - NOHO<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ru6IlYAI/view">SFDC</a><a href="https://dashboard.owner.com/brands/GDTBPPcNxlJE/home?locationId=mCJHA5Q5gop2">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">5d in stage</div></td>
+<td>Recently accepted</td>
+<td>19</td>
+<td>Jul 31</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
+<tr>
+<td>Pablito&#x27;s Peruvian Chicken<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ruCo0YAE/view">SFDC</a><a href="https://dashboard.owner.com/brands/kJYCInO6AcUp/home?locationId=38kCfI2iYtHg">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">5d in stage</div></td>
+<td>Recently accepted</td>
+<td>19</td>
+<td>Jul 31</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
+<tr>
+<td>Pablito&#x27;s Pizza<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ru50CYAQ/view">SFDC</a><a href="https://dashboard.owner.com/brands/GzeLxHlbNmLC/home?locationId=q9cgEGFW4FHu">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">5d in stage</div></td>
+<td>Recently accepted</td>
+<td>19</td>
+<td>Jul 31</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
+<tr>
+<td>Hamburguetza - Burbank<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ru3BFYAY/view">SFDC</a><a href="https://dashboard.owner.com/brands/E995VQwEePER/home?locationId=tEPGQzVF0lOF">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">5d in stage</div></td>
+<td>Recently accepted</td>
+<td>19</td>
+<td>Jul 31</td>
+<td><span class="pill ok">On track</span></td>
+<td>Keep menu build + first order moving</td>
+</tr>
+<tr class="grp"><td colspan="7">Houman Yadkarim <span class="em">· houmanyadkarim@hotmail.com · 1 location · 1 brand</span></td></tr>
+<tr>
+<td>Kabob By Faraj Restaurant &amp; Meat Market<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sAxHZYA0/view">SFDC</a><a href="https://dashboard.owner.com/brands/ExHNAL1XLCmY/home?locationId=Fq13OVg12W4w">Dashboard</a></div></td>
+<td>New<div class="st">14d in stage</div></td>
+<td>Sitting in New past SLA</td>
+<td>14</td>
+<td>Jul 17</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Move to Launch Accepted — confirm order + kickoff</td>
+</tr>
+<tr class="grp"><td colspan="7">Gil Tsruya <span class="em">· gil@littlelenny.com · 2 locations · 2 brands</span></td></tr>
+<tr>
+<td>Lenny&#x27;s Casita<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sFojwYAC/view">SFDC</a><a href="https://dashboard.owner.com/brands/yiV1RDQXUEy4/home?locationId=V70IUjbxi0PT">Dashboard</a></div></td>
+<td>New<div class="st">13d in stage</div></td>
+<td>Still in New, no scheduled go-live date</td>
+<td>13</td>
+<td>—</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Book the launch call and set a go-live date this week</td>
+</tr>
+<tr>
+<td>Little Lenny&#x27;s<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sFtBZYA0/view">SFDC</a><a href="https://dashboard.owner.com/brands/mCRqhGR2ugMt/home?locationId=zJotKngKdlgu">Dashboard</a></div></td>
+<td>New<div class="st">13d in stage</div></td>
+<td>Still in New, no scheduled go-live date</td>
+<td>13</td>
+<td>—</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Book the launch call and set a go-live date this week</td>
+</tr>
+</table>
+<h2>Pablo Barreto</h2>
+<div class="rephead">— 3 customers · 5 locations · 4 brands</div>
+<table><tr><th>Restaurant</th><th>Status</th><th>Key blocker</th><th>Days</th><th>Sched. go-live</th><th>Flag</th><th>Suggested next action</th></tr>
+<tr class="grp"><td colspan="7">Kitty Wong <span class="em">· kittyamygary@gmail.com · 2 locations · 2 brands</span></td></tr>
+<tr>
+<td>Rocket Sushi Conveyor Belt<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sFmy6YAC/view">SFDC</a><a href="https://dashboard.owner.com/brands/X6Gjuey1MgYo/home?locationId=IfcAJTrFQqBZ">Dashboard</a></div></td>
+<td>New<div class="st">13d in stage</div></td>
+<td>Sitting in New past SLA</td>
+<td>13</td>
+<td>Jul 21</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Move to Launch Accepted — confirm order + kickoff</td>
+</tr>
+<tr>
+<td>Tamago Sushi Conveyor Belt<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sFqf7YAC/view">SFDC</a><a href="https://dashboard.owner.com/brands/VkfEZkPtjdKG/home?locationId=2La5ZgrVAmVf">Dashboard</a></div></td>
+<td>Launch Accepted<div class="st">12d in stage</div></td>
+<td>Accepted but not progressing</td>
+<td>13</td>
+<td>Jul 21</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Chase menu build + first order to advance</td>
+</tr>
+<tr class="grp"><td colspan="7">Darion Frazier <span class="em">· darion@bayareafoodz.com · 2 locations · 1 brand</span></td></tr>
+<tr>
+<td>Hyphy Burger<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sOIy0YAG/view">SFDC</a><a href="https://dashboard.owner.com/brands/5aVIrePxV5ch/home?locationId=YbArNaRpd2mE">Dashboard</a></div></td>
+<td>New<div class="st">11d in stage</div></td>
+<td>Still in New, no scheduled go-live date</td>
+<td>11</td>
+<td>—</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Book the launch call and set a go-live date this week</td>
+</tr>
+<tr>
+<td>Hyphy Burger - East Oakland<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sOFtjYAG/view">SFDC</a><a href="https://dashboard.owner.com/brands/5aVIrePxV5ch/home?locationId=JEBgasJCdXFP">Dashboard</a></div></td>
+<td>New<div class="st">11d in stage</div></td>
+<td>Still in New, no scheduled go-live date</td>
+<td>11</td>
+<td>—</td>
+<td><span class="pill stall">Stalled</span></td>
+<td>Book the launch call and set a go-live date this week</td>
+</tr>
+<tr class="grp"><td colspan="7">Sonia Mohan <span class="em">· swm2275@gmail.com · 1 location · 1 brand</span></td></tr>
+<tr>
+<td>Saaz Indian Cuisine<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000scS4DYAU/view">SFDC</a><a href="https://dashboard.owner.com/brands/rO7DOJILWdyD/home?locationId=MXIhC8JomWfw">Dashboard</a></div></td>
+<td>New<div class="st">6d in stage</div></td>
+<td>Still in New, no scheduled go-live date</td>
+<td>6</td>
+<td>—</td>
+<td><span class="pill ok">On track</span></td>
+<td>Book the launch call and set a go-live date this week</td>
+</tr>
+</table>
+<h2>Live customers — Go Live Completed</h2>
+<div class="rephead">17 live locations · 8 brands · 8 customers across the MiB pod</div>
+<div class="livewrap">
+<h2 style="font-size:15px">David Adams</h2>
+<div class="rephead">— 4 customers · 6 locations · 4 brands</div>
+<table><tr><th>Restaurant</th><th>Customer</th><th>Status</th><th>Go Live Completed</th></tr>
+<tr>
+<td>Carrillo&#x27;s Tortilleria<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rQaapYAC/view">SFDC</a><a href="https://dashboard.owner.com/brands/pucBRfHQNeP5/home?locationId=YtzeodIu7tJu">Dashboard</a></div></td>
+<td>Ryan Pineda<div class="st">1 location · 1 brand</div></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jun 26, 2026</td>
+</tr>
+<tr>
+<td>Saby&#x27;s Coffee &amp; Kitchen<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rBC2aYAG/view">SFDC</a><a href="https://dashboard.owner.com/brands/bTtLML5MnHKj/home?locationId=jdn4t6JRcZOA">Dashboard</a></div></td>
+<td>Javi Diaz<div class="st">2 locations · 1 brand</div></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jun 23, 2026</td>
+</tr>
+<tr>
+<td>Saby&#x27;s Breakfast Burrito<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rBC7RYAW/view">SFDC</a><a href="https://dashboard.owner.com/brands/bTtLML5MnHKj/home?locationId=7JmuTvIgH7zZ">Dashboard</a></div></td>
+<td></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jun 23, 2026</td>
+</tr>
+<tr>
+<td>Dough &amp; Co. Pizza Oyster Bay<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000roj6hYAA/view">SFDC</a><a href="https://dashboard.owner.com/brands/N4o4BF6tROdn/home?locationId=L5XxK1JgJBrF">Dashboard</a></div></td>
+<td>Daniel Rocca<div class="st">2 locations · 1 brand</div></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 7, 2026</td>
+</tr>
+<tr>
+<td>Dough &amp; Co. Pizza<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rojjNYAQ/view">SFDC</a><a href="https://dashboard.owner.com/brands/N4o4BF6tROdn/home?locationId=whEJhCcZ1PIh">Dashboard</a></div></td>
+<td></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 8, 2026</td>
+</tr>
+<tr>
+<td>Halal City<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rUd0iYAC/view">SFDC</a><a href="https://dashboard.owner.com/brands/eqRETbRr3fBq/home?locationId=NaKY7K8hWkel">Dashboard</a></div></td>
+<td>Ray Mashriqi<div class="st">1 location · 1 brand</div></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 1, 2026</td>
+</tr>
+</table>
+<h2 style="font-size:15px">Jack Leonardo</h2>
+<div class="rephead">— 4 customers · 11 locations · 4 brands</div>
+<table><tr><th>Restaurant</th><th>Customer</th><th>Status</th><th>Go Live Completed</th></tr>
+<tr>
+<td>Oui Melrose<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ru36PYAQ/view">SFDC</a><a href="https://dashboard.owner.com/brands/Eq1MUR0NGOrr/home?locationId=J6GYyrr3JPMF">Dashboard</a></div></td>
+<td>Armen Piskoulian<div class="st">1 location · 1 brand</div></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 1, 2026</td>
+</tr>
+<tr>
+<td>Daniel&#x27;s Tacos - Sylmar<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rVgu5YAC/view">SFDC</a><a href="https://dashboard.owner.com/brands/duR6JBVrmS3M/home?locationId=OKex2YJ1YE4F">Dashboard</a></div></td>
+<td>Daniel Cabera<div class="st">4 locations · 1 brand</div></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 8, 2026</td>
+</tr>
+<tr>
+<td>Daniel&#x27;s Tacos - Sun Valley - Vineland<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rVdTBYA0/view">SFDC</a><a href="https://dashboard.owner.com/brands/duR6JBVrmS3M/home?locationId=sZgyatmpBrCO">Dashboard</a></div></td>
+<td></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 8, 2026</td>
+</tr>
+<tr>
+<td>Daniel&#x27;s Tacos - North Hills<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rVg9KYAS/view">SFDC</a><a href="https://dashboard.owner.com/brands/duR6JBVrmS3M/home?locationId=nsuLq3LeKsPL">Dashboard</a></div></td>
+<td></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 8, 2026</td>
+</tr>
+<tr>
+<td>Daniel&#x27;s Tacos - Cahuenga Blvd<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rVRFNYA4/view">SFDC</a><a href="https://dashboard.owner.com/brands/duR6JBVrmS3M/home?locationId=KvQjO9kVIjZG">Dashboard</a></div></td>
+<td></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 8, 2026</td>
+</tr>
+<tr>
+<td>LA Burger Bar<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rLbhBYAS/view">SFDC</a><a href="https://dashboard.owner.com/brands/nd6xnGu9KCmJ/home?locationId=0agYnPucs5BD">Dashboard</a></div></td>
+<td>Simon Shechter<div class="st">1 location · 1 brand</div></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jun 25, 2026</td>
+</tr>
+<tr>
+<td>Pinches Tacos<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rjlfNYAQ/view">SFDC</a><a href="https://dashboard.owner.com/brands/qlgpwPoVc02F/home?locationId=tHHMhGn4PTRr">Dashboard</a></div></td>
+<td>Miguel Anaya<div class="st">5 locations · 1 brand</div></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 10, 2026</td>
+</tr>
+<tr>
+<td>Pinches Tacos - Culver City<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rjOaoYAE/view">SFDC</a><a href="https://dashboard.owner.com/brands/qlgpwPoVc02F/home?locationId=eLs7xbJ2Y89M">Dashboard</a></div></td>
+<td></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 8, 2026</td>
+</tr>
+<tr>
+<td>Pinches Tacos - Las Vegas<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rjp9YYAQ/view">SFDC</a><a href="https://dashboard.owner.com/brands/qlgpwPoVc02F/home?locationId=MqGMwSncMH8L">Dashboard</a></div></td>
+<td></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 8, 2026</td>
+</tr>
+<tr>
+<td>Pinches Tacos - Westwood<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rjpMQYAY/view">SFDC</a><a href="https://dashboard.owner.com/brands/qlgpwPoVc02F/home?locationId=8yCTmnxTeNdg">Dashboard</a></div></td>
+<td></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 8, 2026</td>
+</tr>
+<tr>
+<td>Pinches Tacos - DTLA<div class="links"><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rjotPYAQ/view">SFDC</a><a href="https://dashboard.owner.com/brands/qlgpwPoVc02F/home?locationId=mh2I3JbU18to">Dashboard</a></div></td>
+<td></td>
+<td><span class="pill ok">Go Live Completed</span></td>
+<td>Jul 8, 2026</td>
+</tr>
+</table>
+<h2 style="font-size:15px">Pablo Barreto</h2>
+<div class="none">No live MiB customers yet.</div>
 </div>
-
-<!-- ============ JACK LEONARDO ============ -->
-<div class="repblock">
-  <div class="rephdr"><h3>Jack Leonardo</h3><span class="meta">— 5 customers · 14 cases</span></div>
-  <table class="cases">
-    <thead><tr>
-      <th style="width:22%">Restaurant</th><th>Status</th><th>Key blocker</th>
-      <th>Days</th><th>Sched. go-live</th><th>Flag</th><th style="width:26%">Suggested next action</th>
-    </tr></thead>
-    <tbody>
-      <tr class="grp"><td colspan="7">Daniel G. Rodriguez <span class="em">· danny@pablitostacos.com</span> <span class="nm">7 brands · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Hamburguetza – Burbank<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ru3BFYAY/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/E995VQwEePER/home?locationId=tEPGQzVF0lOF">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>—</td>
-        <td class="days">19</td><td>Jul 31</td><td><span class="pill ok">On track</span></td>
-        <td>Moved to LA 7/8 — keep momentum; confirm assets for 7/31.</td>
-      </tr>
-      <tr>
-        <td class="rest">Pablito's Tacos – NOHO<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ru6IlYAI/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/GDTBPPcNxlJE/home?locationId=mCJHA5Q5gop2">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>—</td>
-        <td class="days">19</td><td>Jul 31</td><td><span class="pill ok">On track</span></td>
-        <td>Batch launch with the other Pablito's brands.</td>
-      </tr>
-      <tr>
-        <td class="rest">Pablito's Tacos<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ru1hJYAQ/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/GDTBPPcNxlJE/home?locationId=27Il6mvkHvNV">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>—</td>
-        <td class="days">19</td><td>Jul 31</td><td><span class="pill ok">On track</span></td>
-        <td>Confirm assets for 7/31.</td>
-      </tr>
-      <tr>
-        <td class="rest">MexiSlice<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ruB4HYAU/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/p48pN9giVvrU/home?locationId=J25oWKbL85OH">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>—</td>
-        <td class="days">19</td><td>Jul 31</td><td><span class="pill ok">On track</span></td>
-        <td>Confirm assets for 7/31.</td>
-      </tr>
-      <tr>
-        <td class="rest">Pablito's Tacos – Van Nuys<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ruBFDYA2/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/GDTBPPcNxlJE/home?locationId=u2AscsV16AgR">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>—</td>
-        <td class="days">19</td><td>Jul 31</td><td><span class="pill ok">On track</span></td>
-        <td>Confirm assets for 7/31.</td>
-      </tr>
-      <tr>
-        <td class="rest">Pablito's Peruvian Chicken<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ruCo0YAE/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/kJYCInO6AcUp/home?locationId=38kCfI2iYtHg">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>—</td>
-        <td class="days">19</td><td>Jul 31</td><td><span class="pill ok">On track</span></td>
-        <td>Confirm assets for 7/31.</td>
-      </tr>
-      <tr>
-        <td class="rest">Pablito's Pizza<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ru50CYAQ/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/GzeLxHlbNmLC/home?locationId=q9cgEGFW4FHu">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>—</td>
-        <td class="days">19</td><td>Jul 31</td><td><span class="pill ok">On track</span></td>
-        <td>All 7 Rodriguez brands aligned to 7/31 — confirm assets.</td>
-      </tr>
-
-      <tr class="grp"><td colspan="7">Gil Tsruya <span class="em">· gil@littlelenny.com</span> <span class="nm">2 brands · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Lenny's Casita<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sFojwYAC/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/yiV1RDQXUEy4/home?locationId=V70IUjbxi0PT">Dashboard ↗</a></td>
-        <td>New</td><td>No go-live date set</td>
-        <td class="days warm">13</td><td>—</td><td><span class="pill stall">Stalled</span></td>
-        <td>Set go-live date + start build for both Lenny's brands.</td>
-      </tr>
-      <tr>
-        <td class="rest">Little Lenny's<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sFtBZYA0/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/mCRqhGR2ugMt/home?locationId=zJotKngKdlgu">Dashboard ↗</a></td>
-        <td>New</td><td>No go-live date set</td>
-        <td class="days warm">13</td><td>—</td><td><span class="pill stall">Stalled</span></td>
-        <td>Batch with Lenny's Casita — set dates and kick off.</td>
-      </tr>
-
-      <tr class="grp"><td colspan="7">Houman Yadkarim <span class="em">· houmanyadkarim@hotmail.com</span> <span class="nm">1 brand · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Kabob by Faraj Restaurant &amp; Meat Market<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sAxHZYA0/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/ExHNAL1XLCmY/home?locationId=Fq13OVg12W4w">Dashboard ↗</a></td>
-        <td>New</td><td>Build not started</td>
-        <td class="days hot">14</td><td>Jul 17</td><td><span class="pill past">Go-live risk</span></td>
-        <td>Urgent — 7/17 in 4 days, nothing started. Build now or push.</td>
-      </tr>
-
-      <tr class="grp"><td colspan="7">Miguel Anaya <span class="em">· pinchemiguel@pinchestacos.com</span> <span class="nm">1 brand · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Pinches Tacos<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rjlfNYAQ/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/qlgpwPoVc02F/home?locationId=tHHMhGn4PTRr">Dashboard ↗</a></td>
-        <td>Second Order Completed</td><td>—</td>
-        <td class="days">21</td><td>Jul 24</td><td><span class="pill ok">On track</span></td>
-        <td>Furthest along — verify final steps for 7/24 launch.</td>
-      </tr>
-
-      <tr class="grp"><td colspan="7">Yujin Lee <span class="em">· yujinlee@bcdtofu.com</span> <span class="nm">3 brands · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Yama Sushi – Chinatown<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rdFiGYAU/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/NBEPlCha4op4/home?locationId=XMvXjE4oULWS">Dashboard ↗</a></td>
-        <td>New</td><td>Build not started</td>
-        <td class="days hot">24</td><td>Jul 24</td><td><span class="pill stall">Stalled</span></td>
-        <td>Oldest stall on the board (24d) — escalate this week.</td>
-      </tr>
-      <tr>
-        <td class="rest">Yama Sushi<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rdMesYAE/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/NBEPlCha4op4/home?locationId=621n001hBo1G">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>Assets before go-live</td>
-        <td class="days warm">24</td><td>Jul 24</td><td><span class="pill watch">Watch</span></td>
-        <td>17 days in Launch Accepted — confirm assets for 7/24.</td>
-      </tr>
-      <tr>
-        <td class="rest">Kimchi Restaurant<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rdP86YAE/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/IbWfUb59jQev/home?locationId=EowbOMMfgEnC">Dashboard ↗</a></td>
-        <td>New</td><td>Build not started</td>
-        <td class="days hot">24</td><td>Jul 24</td><td><span class="pill stall">Stalled</span></td>
-        <td>Escalate with Chinatown — 24 days, 7/24 go-live at risk.</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="foot">
+<b>Methodology.</b> Open pipeline = SFDC Cases where Referral Partner = Men in Black, Type in (Product Onboarding, Onboarding New Restaurant), IsClosed = false, owned by David Adams / Jack Leonardo / Pablo Barreto. Live customers = the same filter with Status = "Go Live Completed" (closed), pulled separately since they fall out of the open query. Rows are grouped by customer contact; a single launch call covers all brands that contact owns. <b>Locations</b> = individual cases; <b>brands</b> = distinct Admin Brand IDs. <b>Days</b> = days since Onboarding Start. <b>Stalled</b> = &gt;7 days in current status (from Case Status history). <b>Go-live risk</b> = scheduled go-live past due or within 3 days and not yet live. Meeting matches are best-effort from rep calendars. Internal sync: "Launch MiB Weekly."<br>
+Generated July 13, 2026.
 </div>
-
-<!-- ============ PABLO BARRETO ============ -->
-<div class="repblock">
-  <div class="rephdr"><h3>Pablo Barreto</h3><span class="meta">— 3 customers · 5 cases</span></div>
-  <table class="cases">
-    <thead><tr>
-      <th style="width:22%">Restaurant</th><th>Status</th><th>Key blocker</th>
-      <th>Days</th><th>Sched. go-live</th><th>Flag</th><th style="width:26%">Suggested next action</th>
-    </tr></thead>
-    <tbody>
-      <tr class="grp"><td colspan="7">Darion Frazier <span class="em">· darion@bayareafoodz.com</span> <span class="nm">2 brands · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Hyphy Burger<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sOIy0YAG/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/5aVIrePxV5ch/home?locationId=YbArNaRpd2mE">Dashboard ↗</a></td>
-        <td>New</td><td>No go-live date set</td>
-        <td class="days warm">11</td><td>—</td><td><span class="pill stall">Stalled</span></td>
-        <td>Set go-live date + start build for both Hyphy locations.</td>
-      </tr>
-      <tr>
-        <td class="rest">Hyphy Burger – East Oakland<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sOFtjYAG/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/5aVIrePxV5ch/home?locationId=JEBgasJCdXFP">Dashboard ↗</a></td>
-        <td>New</td><td>No go-live date set</td>
-        <td class="days warm">11</td><td>—</td><td><span class="pill stall">Stalled</span></td>
-        <td>Batch with the other Hyphy location.</td>
-      </tr>
-
-      <tr class="grp"><td colspan="7">Kitty Wong <span class="em">· kittyamygary@gmail.com</span> <span class="nm">2 brands · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Rocket Sushi Conveyor Belt<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sFmy6YAC/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/X6Gjuey1MgYo/home?locationId=IfcAJTrFQqBZ">Dashboard ↗</a></td>
-        <td>New</td><td>Build not started</td>
-        <td class="days hot">13</td><td>Jul 17</td><td><span class="pill past">Go-live risk</span></td>
-        <td>7/17 in 4 days, still New — start build today or push.</td>
-      </tr>
-      <tr>
-        <td class="rest">Tamago Sushi Conveyor Belt<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000sFqf7YAC/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/VkfEZkPtjdKG/home?locationId=2La5ZgrVAmVf">Dashboard ↗</a></td>
-        <td>Launch Accepted</td><td>Go-live date passed</td>
-        <td class="days">13</td><td>Jul 10</td><td><span class="pill past">Go-live past</span></td>
-        <td>Go-live was 7/10 — confirm it launched or reset the date in SFDC.</td>
-      </tr>
-
-      <tr class="grp"><td colspan="7">Sonia Mohan <span class="em">· swm2275@gmail.com</span> <span class="nm">1 brand · Next meeting: none scheduled</span></td></tr>
-      <tr>
-        <td class="rest">Saaz Indian Cuisine<br><a href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000scS4DYAU/view">Case ↗</a> · <a href="https://dashboard.owner.com/brands/rO7DOJILWdyD/home?locationId=MXIhC8JomWfw">Dashboard ↗</a></td>
-        <td>New</td><td>No go-live date set</td>
-        <td class="days">6</td><td>—</td><td><span class="pill ok">On track</span></td>
-        <td>Just started — schedule kickoff and set a go-live date.</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<footer>
-  <b>Methodology.</b> Live Salesforce pull of open onboarding cases (Type = Product Onboarding / Onboarding New Restaurant) where the account’s referral partner is <b>Men in Black</b>, owned by David Adams, Jack Leonardo, or Pablo Barreto. Rows are grouped by customer contact — one owner often has several brands, and a single launch call usually covers all of them. <b>Days</b> = days since Onboarding Start Date. <b>Stalled</b> = 7+ days with no stage progression (from CaseHistory). <b>Go-live risk</b> = scheduled go-live within days but case still in “New”. <b>Go-live past</b> = scheduled date has passed with the case still open. Meeting matches come from the reps’ Google Calendars by contact email (best-effort enrichment). Reviewed in the internal <b>Launch MiB Weekly</b> sync.
-</footer>
-</div>
-</body>
-</html>
+</div></body></html>
