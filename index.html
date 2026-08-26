@@ -18,6 +18,9 @@
   .kpi .l{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-top:2px}
   .kpi .b{font-size:11.5px;color:var(--green);font-weight:600;margin-top:2px}
   .kpi.amber .n{color:var(--amber)} .kpi.red .n{color:var(--red)} .kpi.green .n{color:var(--green)}
+  .win{background:var(--greenbg);border:1px solid #bfe4c7;border-left:4px solid var(--green);border-radius:12px;padding:14px 16px;margin:18px 0}
+  .win h2{margin:0 0 6px;font-size:15px;color:var(--green)}
+  .win p{margin:0}
   .callout{background:var(--redbg);border:1px solid #f0cfc9;border-left:4px solid var(--red);border-radius:12px;padding:14px 16px;margin:18px 0}
   .callout h2{margin:0 0 8px;font-size:15px;color:var(--red)}
   .callout ul{margin:0;padding-left:18px} .callout li{margin:4px 0}
@@ -40,6 +43,7 @@
   .p-hold{background:var(--redbg);color:var(--red)}
   .p-live{background:var(--greenbg);color:var(--green)}
   .uem{background:var(--amberbg);color:var(--amber);border:1px solid #e7c98f;padding:0 6px;border-radius:6px;font-size:10px;font-weight:700;margin-left:6px;vertical-align:middle}
+  .newlive{background:#d6f0dc;color:var(--green);border:1px solid #9fd4ab;padding:0 6px;border-radius:6px;font-size:10px;font-weight:700;margin-left:6px;vertical-align:middle}
   .flag{font-weight:600;font-size:12px}
   .f-red{color:var(--red)} .f-amber{color:var(--amber)} .f-blue{color:var(--blue)} .f-ok{color:var(--green)}
   .meetings{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin:12px 0;color:var(--muted);font-size:13px}
@@ -51,12 +55,12 @@
 <div class="wrap">
 <header>
   <h1>Men in Black — Daily Onboarding Dashboard</h1>
-  <div class="sub">Referral partner: Men In Black &nbsp;·&nbsp; Reps: David Adams, Jack Leonardo, Pablo Barreto &nbsp;·&nbsp; Generated Aug 26, 2026</div>
+  <div class="sub">Referral partner: Men In Black &nbsp;·&nbsp; Reps: David Adams, Jack Leonardo, Pablo Barreto &nbsp;·&nbsp; Generated Aug 26, 2026 (updated PM)</div>
 </header>
 
 <div class="kpis">
-  <div class="kpi"><div class="n">37</div><div class="l">Open locations</div><div class="b">20 brands</div></div>
-  <div class="kpi green"><div class="n">33</div><div class="l">Live customers</div><div class="b">18 brands live</div></div>
+  <div class="kpi"><div class="n">28</div><div class="l">Open locations</div><div class="b">19 brands</div></div>
+  <div class="kpi green"><div class="n">42</div><div class="l">Live customers</div><div class="b">19 brands live</div></div>
   <div class="kpi amber"><div class="n">3</div><div class="l">UEM locations</div><div class="b">3 brands · 2 open / 1 live</div></div>
   <div class="kpi"><div class="n">3</div><div class="l">Reps</div></div>
   <div class="kpi amber"><div class="n">2</div><div class="l">Go-live risk</div></div>
@@ -64,20 +68,25 @@
   <div class="kpi"><div class="n">—</div><div class="l">Meetings today</div></div>
 </div>
 
+<div class="win">
+  <h2>🎉 This morning's launch — The Great White Hut</h2>
+  <p>All <b>9 Great White Hut locations</b> (Jack · Alik Ghazarian) went live this morning, closing together around 9am PT. That single brand moved the board from 33 → <b>42 live MiB customers</b> and cleared Jack's entire 8/31 launch queue nine days early. Combined with The Bucket (8/25), Alik now has <b>10 live locations</b> across 2 brands.</p>
+</div>
+
 <div class="callout">
   <h2>⚠️ Needs attention today</h2>
   <ul>
     <li><b>Rocket Sushi Conveyor Belt</b> (Pablo · Kitty Wong) — <b>On Hold 14 days</b>, no go-live date. Menu build complete but domain still "Requested Info." → Get the unblock reason and a target date, or move to a decision.</li>
     <li><b>Hyphy Burger ×2</b> (Pablo · Darion Frazier) — both <b>still "New" 55 days in</b>, no menu, no go-live. → These have gone cold; confirm the customer is still engaged or make a call.</li>
-    <li><b>Tap City Grille — Falmouth & Hyannis</b> (David · Doc Nealon) — go-live scheduled <b>8/28 (2 days out)</b> but cases still show status "New" with menu only pending review. → Advance the stage and confirm the customer is ready, or the 8/28 date slips.</li>
-    <li><b>Yarmouth House</b> (David · Doc Nealon) — status "New" 61 days, go-live 9/3. Same contact as Tap City; batch the review. </li>
-    <li><b>Sergio's Pizza — Brooklyn & Malta</b> (David · Kristen Piotrowski) — go-live date <b>8/25 has passed</b> and both are First Order Completed. → Ready to close to Go Live Completed today.</li>
-    <li><b>Pablito's cluster ×7</b> (Jack · Daniel Rodriguez) — all Launch Accepted <b>49 days</b>, queued for 8/31. Biggest single push on the board; confirm menu review + domain across all 7 before month-end.</li>
+    <li><b>Tap City Grille — Falmouth &amp; Hyannis</b> (David · Doc Nealon) — go-live scheduled <b>8/28 (2 days out)</b> but cases still show status "New" with menu only pending review. → Advance the stage and confirm the customer is ready, or the 8/28 date slips.</li>
+    <li><b>Yarmouth House</b> (David · Doc Nealon) — status "New" 61 days, go-live 9/3. Same contact as Tap City; batch the review.</li>
+    <li><b>Sergio's Pizza — Brooklyn &amp; Malta</b> (David · Kristen Piotrowski) — go-live date <b>8/25 has passed</b> and both are First Order Completed. → Ready to close to Go Live Completed today.</li>
+    <li><b>Pablito's cluster ×7</b> (Jack · Daniel Rodriguez) — all Launch Accepted <b>49 days</b>, queued for 8/31. Now Jack's biggest remaining push after the GWH launch; confirm menu review + domain across all 7 before month-end.</li>
   </ul>
 </div>
 
 <div class="meetings">
-  <b>Today's MiB meetings</b> — calendar enrichment was skipped on this automated run to keep it reliable. Reps' upcoming customer invites are not matched here; check each rep's calendar directly for today's live calls.
+  <b>Today's MiB meetings</b> — calendar enrichment was skipped on this run to keep it reliable. Reps' upcoming customer invites are not matched here; check each rep's calendar directly for today's live calls.
 </div>
 
 <!-- ==================== OPEN PIPELINE ==================== -->
@@ -135,7 +144,7 @@
 <!-- JACK -->
 <div class="rep">
   <h3>Jack Leonardo</h3>
-  <div class="rh">20 open locations · 10 brands</div>
+  <div class="rh">11 open locations · 9 brands &nbsp;·&nbsp; <span style="color:var(--green)">9 GWH locations launched this morning →</span></div>
 
   <div class="contact">Daniel G. Rodriguez <span class="cs">· danny@pablitostacos.com · 7 locations · 5 brands</span></div>
   <table>
@@ -147,20 +156,6 @@
     <tr><td class="rest">Pablito's Peruvian Chicken <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ruCo0YAE/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/kJYCInO6AcUp/home?locationId=38kCfI2iYtHg">Dash</a></td><td><span class="pill p-la">Launch Accepted</span></td><td>49d in stage; menu pending review</td><td>63</td><td>Aug 31</td><td class="flag f-red">🔴 Stalled 49d</td><td>Batch with Pablito's cluster for 8/31</td></tr>
     <tr><td class="rest">Hamburguetza - Burbank <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ru3BFYAY/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/E995VQwEePER/home?locationId=tEPGQzVF0lOF">Dash</a></td><td><span class="pill p-la">Launch Accepted</span></td><td>49d in stage; menu pending review</td><td>63</td><td>Aug 31</td><td class="flag f-red">🔴 Stalled 49d</td><td>Batch with Pablito's cluster for 8/31</td></tr>
     <tr><td class="rest">MexiSlice <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000ruB4HYAU/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/p48pN9giVvrU/home?locationId=J25oWKbL85OH">Dash</a></td><td><span class="pill p-la">Launch Accepted</span></td><td>49d in stage; menu pending review</td><td>63</td><td>Aug 31</td><td class="flag f-red">🔴 Stalled 49d</td><td>Batch with Pablito's cluster for 8/31</td></tr>
-  </table>
-
-  <div class="contact">Alik Ghazarian <span class="cs">· alikg12@gmail.com · 9 locations · 1 brand (The Great White Hut)</span></div>
-  <table>
-    <tr><th>Restaurant</th><th>Status</th><th>Key blocker / next milestone</th><th>Days</th><th>Go-live</th><th>Flag</th><th>Suggested next action</th></tr>
-    <tr><td class="rest">The Great White Hut <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tr9YuYAI/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=KdXlBmIz85G7">Dash</a></td><td><span class="pill p-fo">First Order Completed</span></td><td>Menu approved; ordering. On track for 8/31</td><td>29</td><td>Aug 31</td><td class="flag f-ok">✓ On track</td><td>Hold for 8/31 launch</td></tr>
-    <tr><td class="rest">GWH - Verdugo Woodlands <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsfsyYAA/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=v3GhDsVjxbEG">Dash</a></td><td><span class="pill p-fo">First Order Completed</span></td><td>Menu approved; ordering</td><td>28</td><td>Aug 31</td><td class="flag f-ok">✓ On track</td><td>Hold for 8/31 launch</td></tr>
-    <tr><td class="rest">GWH - San Fernando Rd <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsgtsYAA/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=hEE7dF4tzalK">Dash</a></td><td><span class="pill p-fo">First Order Completed</span></td><td>Menu approved; ordering</td><td>28</td><td>Aug 31</td><td class="flag f-ok">✓ On track</td><td>Hold for 8/31 launch</td></tr>
-    <tr><td class="rest">GWH - North Hollywood <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsXllYAE/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=BY6hZ9K96iUv">Dash</a></td><td><span class="pill p-fo">First Order Completed</span></td><td>Menu approved; ordering</td><td>28</td><td>Aug 31</td><td class="flag f-ok">✓ On track</td><td>Hold for 8/31 launch</td></tr>
-    <tr><td class="rest">GWH - GCC <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsd9eYAA/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=1GiARVZWDXT8">Dash</a></td><td><span class="pill p-fo">First Order Completed</span></td><td>Menu approved; ordering</td><td>28</td><td>Aug 31</td><td class="flag f-ok">✓ On track</td><td>Hold for 8/31 launch</td></tr>
-    <tr><td class="rest">GWH - Van Nuys <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsaBoYAI/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=t07ZeHW8UUul">Dash</a></td><td><span class="pill p-fo">First Order Completed</span></td><td>Menu approved; ordering</td><td>28</td><td>Aug 31</td><td class="flag f-ok">✓ On track</td><td>Hold for 8/31 launch</td></tr>
-    <tr><td class="rest">GWH - Hollywood Knolls <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tryEaYAI/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=cYlvCLKzS8qX">Dash</a></td><td><span class="pill p-fo">First Order Completed</span></td><td>Menu approved; ordering</td><td>28</td><td>Aug 31</td><td class="flag f-ok">✓ On track</td><td>Hold for 8/31 launch</td></tr>
-    <tr><td class="rest">GWH - Downtown Glendale <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tspp6YAA/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=GkBlogbHnSxP">Dash</a></td><td><span class="pill p-la">Launch Accepted</span></td><td>13d in stage; menu approved — trails siblings</td><td>28</td><td>Aug 31</td><td class="flag f-blue">🚀 Launch queue</td><td>Nudge to First Order to match cluster</td></tr>
-    <tr><td class="rest">GWH - Echo Park <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsqI9YAI/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=vzx7w0V2JOdQ">Dash</a></td><td><span class="pill p-la">Launch Accepted</span></td><td>13d in stage; menu approved — trails siblings</td><td>28</td><td>Aug 31</td><td class="flag f-blue">🚀 Launch queue</td><td>Nudge to First Order to match cluster</td></tr>
   </table>
 
   <div class="contact">Gil Tsruya <span class="cs">· gil@littlelenny.com · 2 locations · 2 brands</span></div>
@@ -211,7 +206,7 @@
 <!-- ==================== LIVE CUSTOMERS ==================== -->
 <h2 class="sec">Live customers</h2>
 <div class="rep live">
-  <div class="rh" style="margin-top:12px"><b>33 live MiB locations · 18 brands</b> — Go Live Completed, all-time</div>
+  <div class="rh" style="margin-top:12px"><b>42 live MiB locations · 19 brands</b> — Go Live Completed, all-time &nbsp;·&nbsp; <span style="color:var(--green)">+9 today (Great White Hut)</span></div>
 
   <h3>David Adams <span class="cs" style="font-weight:400;color:var(--muted);font-size:13px">· 14 live locations · 8 brands</span></h3>
   <table>
@@ -232,10 +227,19 @@
     <tr><td class="rest">Saby's Coffee &amp; Kitchen <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rBC2aYAG/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/bTtLML5MnHKj/home?locationId=jdn4t6JRcZOA">Dash</a></td><td>Javi Diaz</td><td><span class="pill p-live">Go Live Completed</span></td><td>Jun 23, 2026</td></tr>
   </table>
 
-  <h3>Jack Leonardo <span class="cs" style="font-weight:400;color:var(--muted);font-size:13px">· 16 live locations · 7 brands</span></h3>
+  <h3>Jack Leonardo <span class="cs" style="font-weight:400;color:var(--muted);font-size:13px">· 25 live locations · 8 brands &nbsp;· <span style="color:var(--green)">+9 today</span></span></h3>
   <table>
     <tr><th>Restaurant</th><th>Customer</th><th>Status</th><th>Go Live Completed</th></tr>
-    <tr><td class="rest">The Bucket <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tssqAYAQ/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/WEbxZYR6rbUs/home?locationId=KDUqWU0SmJmM">Dash</a></td><td>Alik Ghazarian<br><span class="cs">1 location · 1 brand</span></td><td><span class="pill p-live">Go Live Completed</span></td><td>Aug 25, 2026</td></tr>
+    <tr><td class="rest">The Great White Hut - Echo Park <span class="newlive">NEW TODAY</span> <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsqI9YAI/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=vzx7w0V2JOdQ">Dash</a></td><td>Alik Ghazarian<br><span class="cs">10 locations · 2 brands</span></td><td><span class="pill p-live">Go Live Completed</span></td><td>Aug 26, 2026</td></tr>
+    <tr><td class="rest">The Great White Hut - San Fernando Rd <span class="newlive">NEW TODAY</span> <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsgtsYAA/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=hEE7dF4tzalK">Dash</a></td><td>Alik Ghazarian</td><td><span class="pill p-live">Go Live Completed</span></td><td>Aug 26, 2026</td></tr>
+    <tr><td class="rest">The Great White Hut - Downtown Glendale <span class="newlive">NEW TODAY</span> <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tspp6YAA/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=GkBlogbHnSxP">Dash</a></td><td>Alik Ghazarian</td><td><span class="pill p-live">Go Live Completed</span></td><td>Aug 26, 2026</td></tr>
+    <tr><td class="rest">The Great White Hut - North Hollywood <span class="newlive">NEW TODAY</span> <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsXllYAE/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=BY6hZ9K96iUv">Dash</a></td><td>Alik Ghazarian</td><td><span class="pill p-live">Go Live Completed</span></td><td>Aug 26, 2026</td></tr>
+    <tr><td class="rest">The Great White Hut - Verdugo Woodlands <span class="newlive">NEW TODAY</span> <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsfsyYAA/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=v3GhDsVjxbEG">Dash</a></td><td>Alik Ghazarian</td><td><span class="pill p-live">Go Live Completed</span></td><td>Aug 26, 2026</td></tr>
+    <tr><td class="rest">The Great White Hut - GCC <span class="newlive">NEW TODAY</span> <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsd9eYAA/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=1GiARVZWDXT8">Dash</a></td><td>Alik Ghazarian</td><td><span class="pill p-live">Go Live Completed</span></td><td>Aug 26, 2026</td></tr>
+    <tr><td class="rest">The Great White Hut - Van Nuys <span class="newlive">NEW TODAY</span> <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tsaBoYAI/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=t07ZeHW8UUul">Dash</a></td><td>Alik Ghazarian</td><td><span class="pill p-live">Go Live Completed</span></td><td>Aug 26, 2026</td></tr>
+    <tr><td class="rest">The Great White Hut - Hollywood Knolls <span class="newlive">NEW TODAY</span> <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tryEaYAI/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=cYlvCLKzS8qX">Dash</a></td><td>Alik Ghazarian</td><td><span class="pill p-live">Go Live Completed</span></td><td>Aug 26, 2026</td></tr>
+    <tr><td class="rest">The Great White Hut <span class="newlive">NEW TODAY</span> <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tr9YuYAI/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/PHBTmuXpA81w/home?locationId=KdXlBmIz85G7">Dash</a></td><td>Alik Ghazarian</td><td><span class="pill p-live">Go Live Completed</span></td><td>Aug 26, 2026</td></tr>
+    <tr><td class="rest">The Bucket <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000tssqAYAQ/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/WEbxZYR6rbUs/home?locationId=KDUqWU0SmJmM">Dash</a></td><td>Alik Ghazarian</td><td><span class="pill p-live">Go Live Completed</span></td><td>Aug 25, 2026</td></tr>
     <tr><td class="rest">Yama Sushi - Chinatown <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rdFiGYAU/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/NBEPlCha4op4/home?locationId=XMvXjE4oULWS">Dash</a></td><td>Yujin Lee<br><span class="cs">4 locations · 2 brands</span></td><td><span class="pill p-live">Go Live Completed</span></td><td>Jul 22, 2026</td></tr>
     <tr><td class="rest">Yama Sushi - Cheyenne <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rd8idYAA/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/NBEPlCha4op4/home?locationId=arpsyXlEYKwB">Dash</a></td><td>Yujin Lee</td><td><span class="pill p-live">Go Live Completed</span></td><td>Jul 22, 2026</td></tr>
     <tr><td class="rest">Yama Sushi <a class="lnk" href="https://ownercom.lightning.force.com/lightning/r/Case/500UV00000rdMesYAE/view">SFDC</a><a class="lnk" href="https://dashboard.owner.com/brands/NBEPlCha4op4/home?locationId=621n001hBo1G">Dash</a></td><td>Yujin Lee</td><td><span class="pill p-live">Go Live Completed</span></td><td>Jul 22, 2026</td></tr>
@@ -263,6 +267,6 @@
 </div>
 
 <footer>
-  <b>Methodology.</b> Source: Salesforce Case object, filtered to Type in (Product Onboarding, Onboarding New Restaurant) and Account.Referral_Partner_Account = "Men In Black", owned by David Adams, Jack Leonardo, or Pablo Barreto. Open pipeline = IsClosed=false; Live customers = Status "Go Live Completed" (all-time). <b>Locations</b> = individual cases; <b>brands</b> = distinct Account Admin Brand Id. <b>UEM</b> = the account's Opportunity is owned by a UEM PLG BDR (Jacob Craft / Shelby Fulton) — the reliable Uber Eats-referred marker; UEM restaurants come through the same Men In Black partner and stay in their rep's section. <b>Days</b> = days since Onboarding Start Date. <b>Days-in-stage</b> (used for stall flags) from Case status history. Flags: 🔴 stalled (New/On Hold &gt;7d, or long-idle Launch Accepted), 🟡 go-live risk/past-due, 🚀 month-end launch queue, ✓ on track. Calendar meeting enrichment was skipped on this automated run. Generated Aug 26, 2026.
+  <b>Methodology.</b> Source: Salesforce Case object, filtered to Type in (Product Onboarding, Onboarding New Restaurant) and Account.Referral_Partner_Account = "Men In Black", owned by David Adams, Jack Leonardo, or Pablo Barreto. Open pipeline = IsClosed=false; Live customers = Status "Go Live Completed" (all-time). <b>Locations</b> = individual cases; <b>brands</b> = distinct Account Admin Brand Id. <b>UEM</b> = the account's Opportunity is owned by a UEM PLG BDR (Jacob Craft / Shelby Fulton) — the reliable Uber Eats-referred marker; UEM restaurants come through the same Men In Black partner and stay in their rep's section. <b>Days</b> = days since Onboarding Start Date. <b>Days-in-stage</b> (used for stall flags) from Case status history. Flags: 🔴 stalled (New/On Hold &gt;7d, or long-idle Launch Accepted), 🟡 go-live risk/past-due, 🚀 month-end launch queue, ✓ on track. "NEW TODAY" marks Go Live Completed on 8/26. Calendar meeting enrichment was skipped on this run. Generated Aug 26, 2026 (PM refresh).
 </footer>
 </div>
